@@ -15,4 +15,11 @@ class Machine {
   set milk(int value) => _milk = value;
   set water(int value) => _water = value;
   set cash(int value) => _cash = value;
+
+  static const int CoffeeBeansForEspresso = 50;
+  static const int WaterForEspresso = 100;
+
+  bool isAvailableResources(){
+    return _coffeeBeans >= CoffeeBeansForEspresso && _water >= WaterForEspresso;
+  }
 }
