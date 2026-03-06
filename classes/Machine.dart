@@ -5,4 +5,14 @@ class Machine {
   int _cash;
 
   Machine(this._coffeeBeans, this._milk, this._water, this._cash);
+
+  int get coffeeBeans => _coffeeBeans;
+  int get milk => _milk;
+  int get water => _water;
+  int get cash => _cash;
+
+  set coffeeBeans(int value) => _coffeeBeans = value;
+  set milk(int value) => _milk = value;
+  set water(int value) => _water = value;
+  set cash(int value) => _cash = value;
 }
