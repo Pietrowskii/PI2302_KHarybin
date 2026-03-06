@@ -1,24 +1,45 @@
 import 'dart:io';
 import '../classes/Machine.dart';
 
-void main(){
-  var CoffeeMachine = Machine(200, 500, 500, 0);
-  print("Кофемашина");
+void main() {
+  const int initialBeans = 100;
+  const int initialMilk = 200;
+  const int initialWater = 300;
+  const int initialCash = 0;
+  const int addBeansAmount = 100;
+
+  var CoffeMachine = Machine(initialBeans, initialMilk, initialWater, initialCash);
+
+  print("Система управления кофемашиной");
+
   while (true) {
-    print("\nКоманды: [приготовить кофе], [добавить ресурс], [выход]");
-    stdout.write("Введите команду: ");
-    String? input = stdin.readLineSync()?.toLowerCase();
+    print("\nДоступные действия:");
+    print("1. Приготовить кофе");
+    print("2. Добавить ресурс");
+    print("3. Выход");
+    stdout.write("Введите команду (текст или число): ");
 
-    if (input == "выход") break;
+    String input = stdin.readLineSync()?.trim().toLowerCase() ?? "";
 
-    if (input == "приготовить кофе") {
-      CoffeeMachine.makingCoffee();
-    } else if (input == "добавить ресурс") {
-      CoffeeMachine.coffeeBeans += 100;
-      CoffeeMachine.water += 200;
-      print("Ресурсы пополнены.");
-    } else {
-      print("Неизвестная команда.");
+    if (input == "3" || input == "выход") {
+      print("Программа завершена.");
+      break;
+    }
+
+    switch (input) {
+      case "1":
+      case "приготовить кофе":
+      CoffeMachine.makingCoffee();
+        break;
+      case "2":
+      case "добавить ресурс":
+      CoffeMachine.coffeeBeans += addBeansAmount;
+        print("Ресурсы пополнены. Теперь зерен: ${CoffeMachine.coffeeBeans}");
+        break;
+      case "":
+        break;
+      default:
+        print("Ошибка: команда '$input' не распознана. Используйте цифры 1, 2 или 3.");
     }
   }
 }
