@@ -22,4 +22,9 @@ class Machine {
   bool isAvailableResources(){
     return _coffeeBeans >= CoffeeBeansForEspresso && _water >= WaterForEspresso;
   }
+  void _subtractResources(int coffeeBeansAmount, int milkAmount, int waterAmount) {
+    _coffeeBeans -= coffeeBeansAmount;
+    _milk -= milkAmount;
+    _water -= waterAmount;
+  }
 }
