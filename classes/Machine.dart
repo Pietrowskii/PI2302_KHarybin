@@ -27,4 +27,12 @@ class Machine {
     _milk -= milkAmount;
     _water -= waterAmount;
   }
+  void makingCoffee() {
+    if (isAvailableResources()) {
+      _subtractResources(CoffeeBeansForEspresso, 0, WaterForEspresso);
+      print("Эспрессо готов!");
+    } else {
+      print("Ресурсов недостаточно!");
+    }
+  }
 }
