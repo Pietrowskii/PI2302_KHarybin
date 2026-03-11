@@ -16,11 +16,12 @@ class Machine {
   set water(int value) => _water = value;
   set cash(int value) => _cash = value;
 
-  static const int CoffeeBeansForEspresso = 50;
-  static const int WaterForEspresso = 100;
+  static const int COFFEE_BEANS_FOR_ESPRESSO = 50;
+  static const int WATER_FOR_ESPRESSO = 100;
+  static const int MILK_FOR_ESPRESSO = 0;
 
   bool isAvailableResources(){
-    return _coffeeBeans >= CoffeeBeansForEspresso && _water >= WaterForEspresso;
+    return _coffeeBeans >= COFFEE_BEANS_FOR_ESPRESSO && _water >= WATER_FOR_ESPRESSO;
   }
   void _subtractResources(int coffeeBeansAmount, int milkAmount, int waterAmount) {
     _coffeeBeans -= coffeeBeansAmount;
@@ -29,7 +30,7 @@ class Machine {
   }
   void makingCoffee() {
     if (isAvailableResources()) {
-      _subtractResources(CoffeeBeansForEspresso, 0, WaterForEspresso);
+      _subtractResources(COFFEE_BEANS_FOR_ESPRESSO, MILK_FOR_ESPRESSO, WATER_FOR_ESPRESSO);
       print("Эспрессо готов!");
     } else {
       print("Ресурсов недостаточно!");
