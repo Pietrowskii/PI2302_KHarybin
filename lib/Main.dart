@@ -8,7 +8,7 @@ void main() {
   const int INITIAL_CASH = 0;
   const int ADD_BEANS_AMOUNT = 100;
 
-  var CoffeeMachine = Machine(INITIAL_BEANS, INITIAL_MILK, INITIAL_WATER, INITIAL_CASH);
+  var coffeeMachine = Machine(INITIAL_BEANS, INITIAL_MILK, INITIAL_WATER, INITIAL_CASH);
 
   print("--- Система управления кофемашиной ---");
 
@@ -21,25 +21,27 @@ void main() {
 
     String input = stdin.readLineSync()?.trim().toLowerCase() ?? "";
 
-    if (input == "3" || input == "выход") {
-      print("Программа завершена.");
-      break;
-    }
-
     switch (input) {
       case "1":
       case "приготовить кофе":
-        CoffeeMachine.makingCoffee();
+        coffeeMachine.makingCoffee();
         break;
+
       case "2":
       case "добавить ресурс":
-        CoffeeMachine.coffeeBeans += ADD_BEANS_AMOUNT;
+        coffeeMachine.coffeeBeans += ADD_BEANS_AMOUNT;
         print("Ресурсы пополнены. Теперь зерен: ${coffeeMachine.coffeeBeans}");
         break;
-      case "":
-        break;
+
+      case "3":
+      case "выход":
+        print("Программа завершена.");
+        return;
+
       default:
-        print("Ошибка: команда '$input' не распознана. Используйте цифры 1, 2 или 3.");
+        if (input.isNotEmpty) {
+          print("Ошибка: команда '$input' не распознана. Используйте цифры 1, 2 или 3.");
+        }
     }
   }
 }
