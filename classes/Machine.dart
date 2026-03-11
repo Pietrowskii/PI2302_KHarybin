@@ -20,14 +20,17 @@ class Machine {
   static const int WATER_FOR_ESPRESSO = 100;
   static const int MILK_FOR_ESPRESSO = 0;
 
-  bool isAvailableResources(){
-    return _coffeeBeans >= COFFEE_BEANS_FOR_ESPRESSO && _water >= WATER_FOR_ESPRESSO;
+  bool isAvailableResources() {
+    return _coffeeBeans >= COFFEE_BEANS_FOR_ESPRESSO &&
+        _water >= WATER_FOR_ESPRESSO;
   }
+
   void _subtractResources(int coffeeBeansAmount, int milkAmount, int waterAmount) {
     _coffeeBeans -= coffeeBeansAmount;
     _milk -= milkAmount;
     _water -= waterAmount;
   }
+
   void makingCoffee() {
     if (isAvailableResources()) {
       _subtractResources(COFFEE_BEANS_FOR_ESPRESSO, MILK_FOR_ESPRESSO, WATER_FOR_ESPRESSO);

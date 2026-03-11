@@ -2,15 +2,15 @@ import 'dart:io';
 import '../classes/Machine.dart';
 
 void main() {
-  const int initialBeans = 100;
-  const int initialMilk = 200;
-  const int initialWater = 300;
-  const int initialCash = 0;
-  const int addBeansAmount = 100;
+  const int INITIAL_BEANS = 100;
+  const int INITIAL_MILK = 200;
+  const int INITIAL_WATER = 300;
+  const int INITIAL_CASH = 0;
+  const int ADD_BEANS_AMOUNT = 100;
 
-  var CoffeMachine = Machine(initialBeans, initialMilk, initialWater, initialCash);
+  var CoffeeMachine = Machine(INITIAL_BEANS, INITIAL_MILK, INITIAL_WATER, INITIAL_CASH);
 
-  print("Система управления кофемашиной");
+  print("--- Система управления кофемашиной ---");
 
   while (true) {
     print("\nДоступные действия:");
@@ -29,12 +29,12 @@ void main() {
     switch (input) {
       case "1":
       case "приготовить кофе":
-      CoffeMachine.makingCoffee();
+        CoffeeMachine.makingCoffee();
         break;
       case "2":
       case "добавить ресурс":
-      CoffeMachine.coffeeBeans += addBeansAmount;
-        print("Ресурсы пополнены. Теперь зерен: ${CoffeMachine.coffeeBeans}");
+        CoffeeMachine.coffeeBeans += ADD_BEANS_AMOUNT;
+        print("Ресурсы пополнены. Теперь зерен: ${coffeeMachine.coffeeBeans}");
         break;
       case "":
         break;
