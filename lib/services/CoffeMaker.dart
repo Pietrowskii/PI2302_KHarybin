@@ -1,27 +1,31 @@
 import 'dart:async';
 
 class CoffeeMaker {
+  CoffeeMaker._internal();
   static final CoffeeMaker _instance = CoffeeMaker._internal();
-
-  factory CoffeeMaker() {
+  
+  factory CoffeeMaker.create() {
+    print('[SYSTEM]: Кофемашина создана через фабрику');
     return _instance;
   }
 
-  CoffeeMaker._internal();
-
   Future<void> heatWater() async {
-    await Future.delayed(const Duration(seconds: 2));
-  }
-
-  Future<void> brewCoffee() async {
+    print('>>> [TECH]: Нагрев воды (3 сек)...');
     await Future.delayed(const Duration(seconds: 3));
   }
 
+  Future<void> brewCoffee() async {
+    print('>>> [TECH]: Заваривание кофе (5 сек)...');
+    await Future.delayed(const Duration(seconds: 5));
+  }
+
   Future<void> frothMilk() async {
-    await Future.delayed(const Duration(seconds: 2));
+    print('>>> [TECH]: Взбивание молока (5 сек)...');
+    await Future.delayed(const Duration(seconds: 5));
   }
 
   Future<void> mixCoffeeAndMilk() async {
-    await Future.delayed(const Duration(seconds: 1));
+    print('>>> [TECH]: Смешивание (3 сек)...');
+    await Future.delayed(const Duration(seconds: 3));
   }
 }
