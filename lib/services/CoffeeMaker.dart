@@ -5,12 +5,12 @@ class CoffeeMaker {
   static final CoffeeMaker _instance = CoffeeMaker._internal();
   
   factory CoffeeMaker.create() {
-    print('[SYSTEM]: Кофемашина создана через фабрику');
+    print('[SYSTEM]: Кофемашина создана фабричным методом');
     return _instance;
   }
 
   Future<void> heatWater() async {
-    print('>>> [TECH]: Нагрев воды (3 сек)...');
+    print('>>> Нагрев воды (3 сек)...');
     await Future.delayed(const Duration(seconds: 3));
   }
 
